@@ -1,0 +1,114 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=1000
+setopt appendhistory autocd extendedglob nomatch notify
+unsetopt beep
+# use vi key bindings
+bindkey -v
+# avoid the annoying backspace/delete issue 
+# where backspace stops deleting characters
+bindkey -v '^?' backward-delete-char
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/users/external/rhelsen/.zshrc'
+zstyle ':completion:*' rehash true
+
+unset '_comps[source]'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+#
+
+
+### Plugin config
+
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+MODE_INDICATOR="%F{red}+%f"
+INSERT_MODE_INDICATOR="%F{yellow}+%f"
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20 # Avoid suggestions on long input
+
+### End plugin config
+
+alias givm="gvim"
+alias gviim="gvim"
+alias gvmi="gvim"
+alias poopd="popd"
+alias podp="popd"
+alias g="gvim"
+alias imlost="pwd;svn info"
+alias n="nvim"
+alias g="nvim -g"
+alias mkdir="mkdir -p"
+
+
+alias ls="ls --color"
+alias l="ls -l"
+alias la="l -a"
+alias grep="grep --color"
+alias g="gvim"
+alias glog="'git log --graph  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit'"
+alias gt="git status"
+alias gdc="git diff --word-diff=color --word-diff-regex=."
+alias gitbase="'git rev-parse --show-toplevel | xargs basename'"
+
+alias gitahead="'/projects/soc_plat/shared/bin/GitAhead'"
+alias gitk="'/soft/git/git-2.27.0/gitk-git/gitk'"
+
+alias totalsize='find . -iname "*" -type f | xargs -n 1 du -h | sort -h'
+
+autoload -Uz vcs_info
+autoload -U colors && colors
+function whoami_prompt () {
+    REPLY=$(whoami)
+}
+
+precmd() { vcs_info;}
+zstyle ':vcs_info:git:*' formats '%b '
+
+NEWLINE=$'\n'
+
+#Old prompt without branch plugin
+#PROMPT='${NEWLINE} %B%F{229}%*%f%b %B%F{34}~%f%b %d %F{34}: %f%F{9}${vcs_info_msg_0_}%f%b ${NEWLINE}%B%F{34}[%f%F{9}$(whoami)%f%F{9}@%f%F{9}%m%f%F{34}] %f%b(zsh) %F{34}$%f%b ' # Set initial prompt
+
+#New prompt with branch plugin
+
+PROMPT='${NEWLINE} %B%F{229}%*%f%b %B%F{34}~%f%b %d %F{34}: %f%F{9}$(branch_prompt_info)%f%b ${NEWLINE}%B%F{34}[%f%F{9}$(whoami)%f%F{9}@%f%F{9}%m%f%F{34}] %f%b(zsh) %F{34}$%f%b ' # Set initial prompt
+
+
+PROMPT="$PROMPT\$(vi_mode_prompt_info) " # Add vi mode info to prompt
+
+setopt PROMPT_SUBST
+
+export PATH=$(echo "$PATH" | sed -e 's/:.:/:/')
+export SHELL=$(which zsh)
+export SSH_SOCKET=~/.ssh/ssh_auth_sock_$(hostname)
+if [[ ! -S $SSH_SOCKET ]] then
+  echo "No SSH socket found"
+  eval `ssh-agent`
+  ln -sf "$SSH_AUTH_SOCK" $SSH_SOCKET
+fi
+export SSH_AUTH_SOCK=$SSH_SOCKET
+ssh-add -l > /dev/null || ssh-add
+echo "SSH-agent running using socket $SSH_SOCKET"
+
+alias d='dirs -v | head -10'
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+
+
+eval $(thefuck --alias)
+
+if [ "$HOST" != "CF6W4K6KYX" ]; then
+  . /file_access/scripts/profile_min
+  echo "Sourced profile_min, hopefully dpsh works now!"
+fi
+fortune | cowsay
