@@ -115,5 +115,5 @@ source ~/.zshrc.local
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
+source ~/.iterm2_shell_integration.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
