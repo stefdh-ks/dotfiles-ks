@@ -52,7 +52,7 @@ alias glog="'git log --graph  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Cres
 alias gt="git status"
 alias gdc="git diff --word-diff=color --word-diff-regex=."
 alias gitbase="'git rev-parse --show-toplevel | xargs basename'"
-alias cw="cd $WORK_ROOT"
+alias cw="cd $DIGROOT"
 
 alias gitahead="'/projects/soc_plat/shared/bin/GitAhead'"
 alias gitk="'/soft/git/git-2.27.0/gitk-git/gitk'"
