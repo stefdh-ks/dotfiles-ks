@@ -52,7 +52,7 @@ alias glog="'git log --graph  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Cres
 alias gt="git status"
 alias gdc="git diff --word-diff=color --word-diff-regex=."
 alias gitbase="'git rev-parse --show-toplevel | xargs basename'"
-alias cw="cd $DIGROOT"
+alias cw="cd $WORK_ROOT"
 
 alias gitahead="'/projects/soc_plat/shared/bin/GitAhead'"
 alias gitk="'/soft/git/git-2.27.0/gitk-git/gitk'"
@@ -111,5 +111,7 @@ eval $(thefuck --alias)
 if [ "$HOST" != "CF6W4K6KYX" ]; then
   . /file_access/scripts/profile_min
   echo "Sourced profile_min, hopefully dpsh works now!"
+  fortune | cowsay
+else
+  export VENDOR=QUESTA
 fi
-fortune | cowsay
