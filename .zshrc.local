@@ -111,7 +111,7 @@ eval $(thefuck --alias)
 if [ "$HOST" != "CF6W4K6KYX" ]; then
   . /file_access/scripts/profile_min
   echo "Sourced profile_min, hopefully dpsh works now!"
-  fortune | cowsay
-else
   export VENDOR=QUESTA
+else
+  fortune | cowsay
 fi
