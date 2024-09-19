@@ -11,8 +11,7 @@
 	ci = commit
 	br = branch
 [user]
-	name = Ruben Helsen
-	email = ruben.helsen@keysight.com
+	name = Change your gitconfig buddy, you ain't me!
 [core]
 	editor = vim -f
   mergeoptions = --no-edit
