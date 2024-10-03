@@ -108,7 +108,7 @@ alias 9='cd -9'
 
 eval $(thefuck --alias)
 
-if [ "$HOST" != "CF6W4K6KYX" ]; then
+if [ "$HOST" != "K63072P460" ]; then
   . /file_access/scripts/profile_min
   echo "Sourced profile_min, hopefully dpsh works now!"
   export VENDOR=QUESTA
