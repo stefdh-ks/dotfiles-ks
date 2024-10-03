@@ -8,16 +8,17 @@
 	ls = ls-files
 	st = status
 	co = checkout
-	ci = commit
+	ci = commit --verbose
 	br = branch
 [user]
-	name = Change your gitconfig buddy, you ain't me!
+	name = Stef Dhaeseleer
+	email = stef.dhaeseleer@keysight.com
 [core]
 	editor = vim -f
-  mergeoptions = --no-edit
+        mergeoptions = --no-edit
 [log]
 	date = local
 [merge]
 	conflictstyle = diff3
 [push]
-  default = current
+        default = current
