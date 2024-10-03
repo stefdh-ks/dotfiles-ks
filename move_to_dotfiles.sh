@@ -1,13 +1,13 @@
 #!/bin/bash
-cp ~/.gvimrc* ~/dotfiles
-cp ~/.vimrc* ~/dotfiles
-cp ~/.zshrc* ~/dotfiles
-cp ~/.zprofile ~/dotfiles
-cp ~/.gitconfig ~/dotfiles/gitconfigglobal
-cp ~/.dpsh_paths ~/dotfiles
+cp ~/.gvimrc* ~/dotfiles-ks
+cp ~/.vimrc* ~/dotfiles-ks
+cp ~/.zshrc* ~/dotfiles-ks
+cp ~/.zprofile ~/dotfiles-ks
+cp ~/.gitconfig ~/dotfiles-ks/gitconfigglobal
+cp ~/.dpsh_paths ~/dotfiles-ks
 cp -r ~/.fzf.zsh
-cp -r ~/.config ~/dotfiles
+cp -r ~/.config ~/dotfiles-ks
 
-cd ~/dotfiles
+cd ~/dotfiles-ks
 brew bundle dump
 cd -
